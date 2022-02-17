@@ -164,6 +164,8 @@ dc.loadMenuItems = function (categoryShort) {
         $ajaxUtils.sendGetRequest(
           categoryHtml,
           function (categoryHtml) {
+              // Switch CSS class active to menu button
+          switchMenuToActive();
             var categoriesViewHtml =
               buildCategoriesViewHtml(categories,
                                       categoriesTitleHtml,
@@ -214,6 +216,9 @@ function buildAndShowMenuItemsHTML (categoryMenuItems) {
         $ajaxUtils.sendGetRequest(
           menuItemHtml,
           function (menuItemHtml) {
+              // Switch CSS class active to menu button
+          switchMenuToActive();
+
             var menuItemsViewHtml =
               buildMenuItemsViewHtml(categoryMenuItems,
                                      menuItemsTitleHtml,
