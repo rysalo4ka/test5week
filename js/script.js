@@ -14,7 +14,7 @@ $(function () {
 
     var dc = {};
     
-    var homeHtml = "snippets/home-snippet.html";
+    var homeHtmlUrl = "snippets/home-snippet.html";
     var allCategoriesUrl ="https://davids-restaurant.herokuapp.com/categories.json";
     var categoriesTitleHtml = "snippets/categories-title-snippet.html";
     var categoryHtml = "snippets/category-snippet.html";
@@ -42,7 +42,7 @@ var insertProperty = function (string, propName, propValue) {
     string = string
       .replace(new RegExp(propToReplace, "g"), propValue);
     return string;
-  }
+  };
 // Remove the class 'active' from home and switch to Menu button
 var switchMenuToActive = function () {
   // Remove 'active' from home button
@@ -52,7 +52,7 @@ var switchMenuToActive = function () {
 
   // Add 'active' to menu button if not already there
   classes = document.querySelector("#navMenuButton").className;
-  if (classes.indexOf("active") == -1) {
+  if (classes.indexOf("active") === -1) {
     classes += " active";
     document.querySelector("#navMenuButton").className = classes;
   }
@@ -290,7 +290,7 @@ function buildAndShowMenuItemsHTML (categoryMenuItems) {
                        menuItems[i].description);
   
       // Add clearfix after every second menu item
-      if (i % 2 != 0) {
+      if (i % 2 !== 0) {
         html +=
           "<div class='clearfix d-sm-none d-md-none d-lg-block d-xl-block .d-xxl-block'></div>";
       }
@@ -309,7 +309,7 @@ function buildAndShowMenuItemsHTML (categoryMenuItems) {
                            priceValue) {
     // If not specified, replace with empty string
     if (!priceValue) {
-      return insertProperty(html, pricePropName, "");;
+      return insertProperty(html, pricePropName, "");
     }
   
     priceValue = "$" + priceValue.toFixed(2);
